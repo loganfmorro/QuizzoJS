@@ -18,7 +18,7 @@ var questions = [{
     "option2": "Booleans"
     "option3": "Alerts"
     "option4": "Numbers"
-    "answer" : ""
+    "answer" : "4"
 }, {
     "question": "String values must be enclosed within _____ when being assigned to variables."
     "option1": "Commas"
