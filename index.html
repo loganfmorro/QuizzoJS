@@ -4,19 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Java Quizzo</title>
+    <!--custom font-->
     <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
+    <!--Area where quiz information lives-->
     <div id="quizContainer" class = "container">
         <div class="title">JavaScript Quizzo</div>
+        <div id="timerLabel">Time Left</div>
+        <div id="quizTimer">100</div>
         <div id="question" class="question"></div>
         <label class="option"><input type="radio" name="option" value="1"><span id="opt1"></span></label>
         <label class="option"><input type="radio" name="option" value="1"><span id="opt2"></span></label>
         <label class="option"><input type="radio" name="option" value="1"><span id="opt3"></span></label>
         <label class="option"><input type="radio" name="option" value="1"><span id="opt4"></span></label>
-        <button id="answerButton" class="answer-btn" onclick="submitAnswer();">Submit Answer</button>
+        <div class="checkAnswer" id="chkAns"></div>
+        <button id="answerButton" class="answer-btn" onclick="loadNextQuestion();">Submit Answer</button>
     </div>
+    <!--Container for the results page with scores-->
     <div id="result" class="container result" style="display:none;">
     </div>
     <script src ="question.js"></script>

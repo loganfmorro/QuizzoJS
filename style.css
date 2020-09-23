@@ -4,7 +4,7 @@ body{
 }
 
 .container{
-    height: 330px;
+    height: 375px;
     width: 1000px;
     position: absolute;
     top: 50%;
@@ -18,15 +18,29 @@ body{
 .title{
    padding-top: 20px;
    text-align: center;
-   font-size: 36px;
+   font-size: 34px;
    text-transform: uppercase;
    color: white
 }
 
+#timerLabel{
+    color: rgb(65, 65, 65);
+    font-size: 25px;
+    border-radius: 20px;
+    text-align: center;
+    padding-top: 10px;
+}
+
+#quizTimer{
+    color: teal;
+    font-size: 30px;
+    text-align: center;
+}
+
 .question{
     padding: 20px;
-    font-size: 22px;
-    background: teal;
+    font-size: 20px;
+    background: #cacaca;
     border-radius: 20px;
     margin: 10px 0 10px 0;
     color: black
@@ -37,22 +51,23 @@ body{
     display: inline-block;
     padding: 10px 0 10px 0;
     vertical-align: middle;
-    background: #cacaca;
+    background:teal;
     margin: 10px 0 10px 0;
-    color: black;
+    color: white;
     border-radius: 20px;
 }
 
 .option:hover {
-    background: teal;
-    color: white;
+    background:#cacaca;
+    color: black;
 }
 
 .answer-btn{
     border: none;
     outline: none;
-    background: teal;
+    background:rgb(27, 27, 27);
     color: white;
+    border-color:teal;
     width: 200px;
     height: 35px;
     border-radius: 20px;
@@ -66,10 +81,18 @@ body{
     color:teal;
 }
 
+.checkAnswer{
+    color: white;
+    padding-top: 10px;
+    font-size: 24px;
+    float: left;
+}
+
 .result{
     height: 100px;
     text-align: center;
     font-size: 75px;
+    color: white;
 }
 
 .option input:checked .option{
