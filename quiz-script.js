@@ -89,10 +89,13 @@ function loadNextQuestion() {
 loadQuestion(currentQuestion);
 
 //Storing high scores
-const initials = document.getElementById("initials");
-const submitScore = document.getElementById('scoreSubmit');
-const mostRecentScore = localStorage.getItem("mostRecentScore");
-const highScores = JSON.parse(localStorage.getItem("highScore")) || [];
+var initials = document.getElementById("initials");
+var submitScore = document.getElementById('scoreSubmit');
+var finalScore = document.getElementById('quizTimer');
+var mostRecentScore = localStorage.getItem("mostRecentScore");
+var highScores = JSON.parse(localStorage.getItem("highScore")) || [];
+
+const max_high_scores = 5;
 console.log(highScores);
 
 finalScore.innerText = mostRecentScore;
@@ -100,3 +103,22 @@ finalScore.innerText = mostRecentScore;
 initials.addEventListener("keyup", () => {
     submitScore.disabled = !initials.value;
 });
+
+saveHighScore = e => {
+    console.log("clicked the save button!");
+    e.preventDefault();
+    
+    const score = {
+        score: mostRecentScore,
+        name: initials.value
+    };
+    highScores.push(score);
+    highScores.sort( (a,b) => b.score - a.score)
+
+    highScores.splice(5);
+
+    localStorage.setItem("highScores", JSON.stringify(highScores));
+    window.location.assign("/");
+
+    console.log(highScores);
+};
