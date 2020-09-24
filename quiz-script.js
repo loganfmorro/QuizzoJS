@@ -64,7 +64,6 @@ function loadNextQuestion() {
     var answer = selectedOption.value;
     if(questions[currentQuestion].answer != answer){
         chkAnswerEl.textContent = "Sorry, Incorrect!";
-        setTimeout(chkAnswerEl, 2000);
         startCount = startCount - 10;
     }
     else if(questions[currentQuestion].answer == answer){
@@ -77,7 +76,7 @@ function loadNextQuestion() {
         answerButton.textContent= "Finish";
     }
 
-    if(currentQuestion === totalQuestions || startCount === 0){
+    if(currentQuestion === totalQuestions || countdownElement.value === 0){
         container.style.display = 'none';
         resultContainer.style.display = '';
         resultContainer.textContent='Your Score: ' + quizTimer.textContent;
