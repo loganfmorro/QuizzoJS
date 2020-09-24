@@ -26,7 +26,7 @@
     <div id="quizContainer" class = "container" style="display:none;">
         <div class="title">JavaScript Quizzo</div>
         <div id="timerLabel">Time Left</div>
-        <div id="quizTimer">100</div>
+        <div id="quizTimer" >100</div>
         <div id="question" class="question"></div>
         <label class="option"><input type="radio" name="option" value="1"><span id="opt1"></span></label>
         <label class="option"><input type="radio" name="option" value="2"><span id="opt2"></span></label>
@@ -38,6 +38,7 @@
 
     <!--Container for the results page with scores-->
     <div id="result" class="container result" style="display:none;">
+        <button id="startButton" onclick="startQuiz();">Try Again</button>
         <label for="initials">Initials:</label>
         <input type="text" id="initials" name="initials">
         <br><br>

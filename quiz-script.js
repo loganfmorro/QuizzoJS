@@ -55,6 +55,12 @@ function loadQuestion (questionIndex){
 
 //Subtmitting/ Loading the next question functions
 function loadNextQuestion() {
+        var chkAnswerEl = document.getElementById('chkAns')
+        //timeout answer
+        setTimeout(()=>{
+            chkAnswerEl.textContent = '';
+        }, 1000)
+
     var selectedOption = document.querySelector('input[type=radio]:checked');
     if (!selectedOption){
         alert ('Please select your answer!');
@@ -87,6 +93,7 @@ function loadNextQuestion() {
     loadQuestion(currentQuestion);
 }
 loadQuestion(currentQuestion);
+
 
 //Storing high scores
 var initials = document.getElementById("initials");
