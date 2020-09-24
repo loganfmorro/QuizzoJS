@@ -1,5 +1,13 @@
-var currentQuestion = 0;
-var wrongPenalty = -10;
+
+//variables for start page
+var startContain = document.getElementById('startContainer');
+var startBtn = document.getElementById("startButton");
+
+function startQuiz(){
+    startBtn.addEventListener("click", startQuiz);
+    startContain.style.display= "none";
+    container.style.display= '';
+}
 
 //timer variables and function
 var startCount = 100
@@ -22,6 +30,7 @@ let countdown = setInterval(
 );
 
 //Variables for our questions
+var currentQuestion = 0;
 var container = document.getElementById('quizContainer');
 var questionEl = document.getElementById('question');
 var opt1 = document.getElementById('opt1');
@@ -55,9 +64,10 @@ function loadNextQuestion() {
     var answer = selectedOption.value;
     if(questions[currentQuestion].answer != answer){
         chkAnswerEl.textContent = "Sorry, Incorrect!";
+        setTimeout(chkAnswerEl, 2000);
         startCount = startCount - 10;
     }
-    if(questions[currentQuestion].answer == answer){
+    else if(questions[currentQuestion].answer == answer){
         chkAnswerEl.textContent = "That's Correct!";
     }
 
@@ -67,7 +77,7 @@ function loadNextQuestion() {
         answerButton.textContent= "Finish";
     }
 
-    if((currentQuestion == totalQuestions) || 'quizTimer' === 0){
+    if(currentQuestion === totalQuestions || startCount === 0){
         container.style.display = 'none';
         resultContainer.style.display = '';
         resultContainer.textContent='Your Score: ' + quizTimer.textContent;
