@@ -40,6 +40,7 @@ var opt4 = document.getElementById('opt4');
 var totalQuestions = questions.length;
 var answerBtn = document.getElementById('answerButton');
 var resultContainer = document.getElementById('result');
+var finalScore = quizTimer.textContent;
 
 //Code to load the questions into the container
 function loadQuestion (questionIndex){
@@ -77,11 +78,25 @@ function loadNextQuestion() {
     }
 
     if(currentQuestion === totalQuestions || countdownElement.value === 0){
+        var finalScore = quizTimer.textContent;
         container.style.display = 'none';
         resultContainer.style.display = '';
-        resultContainer.textContent='Your Score: ' + quizTimer.textContent;
+        resultContainer.textContent='Your Score: ' + finalScore;
         return;
     }
     loadQuestion(currentQuestion);
 }
 loadQuestion(currentQuestion);
+
+//Storing high scores
+const initials = document.getElementById("initials");
+const submitScore = document.getElementById('scoreSubmit');
+const mostRecentScore = localStorage.getItem("mostRecentScore");
+const highScores = JSON.parse(localStorage.getItem("highScore")) || [];
+console.log(highScores);
+
+finalScore.innerText = mostRecentScore;
+
+initials.addEventListener("keyup", () => {
+    submitScore.disabled = !initials.value;
+});
